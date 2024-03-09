@@ -34,6 +34,22 @@ type TagURI struct {
 }
 
 // String returns the (serialized) tag-URI, based on the data in the 'receiver'.
+//
+// For example, this:
+//
+//	var tag taguri.TagURI = taguri.TagURI{
+//		AuthorityName: "example.com",
+//		Date:          "2024-03-08",
+//		Specific:      "note-EY7NjqnYtc",
+//	}
+//	
+//	// ...
+//	
+//	fmt.Println(tag.String())
+//
+// Would output:
+//
+//	tag:example.com,2024-03-08:note-EY7NjqnYtc
 func (receiver TagURI) String() string {
 	var buffer [256]byte
 	var p []byte = buffer[0:0]
